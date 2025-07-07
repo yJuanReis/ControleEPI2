@@ -1,3 +1,6 @@
+// tsconfig.json
+// Este arquivo configura o compilador TypeScript para o seu projeto.
+// Adicionamos 'baseUrl' e 'paths' para resolver os aliases de caminho, como '@/' para 'src/'.
 {
   "compilerOptions": {
     "target": "es5",
@@ -18,7 +21,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src", // Define a base para a resolução de módulos
+    "paths": {
+      "@/*": ["*"] // Mapeia '@/' para a pasta 'src/'
+    }
   },
   "include": [
     "src"

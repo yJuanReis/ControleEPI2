@@ -1,3 +1,16 @@
+/* src/index.css */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Reset e configurações globais */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +18,315 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Classes utilitárias personalizadas para o sistema EPI */
+.safety-blue {
+  color: #2563eb;
+}
+
+.safety-green {
+  color: #059669;
+}
+
+.safety-orange {
+  color: #ea580c;
+}
+
+.safety-red {
+  color: #dc2626;
+}
+
+.safety-red-dark {
+  color: #991b1b;
+}
+
+.bg-safety-blue {
+  background-color: #2563eb;
+}
+
+.bg-safety-green {
+  background-color: #059669;
+}
+
+.bg-safety-orange {
+  background-color: #ea580c;
+}
+
+.bg-safety-red {
+  background-color: #dc2626;
+}
+
+/* Variações com transparência */
+.bg-safety-blue\/5 {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.bg-safety-green\/5 {
+  background-color: rgba(5, 150, 105, 0.05);
+}
+
+.bg-safety-orange\/5 {
+  background-color: rgba(234, 88, 12, 0.05);
+}
+
+.bg-safety-red\/5 {
+  background-color: rgba(220, 38, 38, 0.05);
+}
+
+/* Bordas com cores do sistema */
+.border-safety-blue\/20 {
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.border-safety-green\/20 {
+  border-color: rgba(5, 150, 105, 0.2);
+}
+
+.border-safety-orange\/20 {
+  border-color: rgba(234, 88, 12, 0.2);
+}
+
+.border-safety-red\/20 {
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+/* Estados de foco e hover personalizados */
+.focus-safety:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: #2563eb;
+}
+
+/* Animações suaves */
+.transition-safety {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Classes para tabelas */
+.table-safety {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-safety th,
+.table-safety td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table-safety th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.table-safety tbody tr:hover {
+  background-color: #f8fafc;
+  transition: background-color 0.15s ease;
+}
+
+/* Classes para cards com status */
+.card-critical {
+  border-left: 4px solid #dc2626;
+}
+
+.card-warning {
+  border-left: 4px solid #ea580c;
+}
+
+.card-success {
+  border-left: 4px solid #059669;
+}
+
+.card-info {
+  border-left: 4px solid #2563eb;
+}
+
+/* Estilos para modais */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Responsividade para gráficos */
+.chart-container {
+  width: 100%;
+  height: 300px;
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    height: 400px;
+  }
+}
+
+/* Estilos para loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Estilos para badges customizados */
+.badge-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Impressão */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .print-break {
+    page-break-after: always;
+  }
+}
+
+/* Classes utilitárias para texto */
+.text-muted-foreground {
+  color: #64748b;
+}
+
+.text-safety-blue-dark {
+  color: #1d4ed8;
+}
+
+/* Classes para inputs customizados */
+.input-safety {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input-safety:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input-safety:disabled {
+  background-color: #f9fafb;
+  cursor: not-allowed;
+}
+
+/* Estilos para seleção de texto */
+::selection {
+  background-color: #bfdbfe;
+  color: #1e3a8a;
+}
+
+/* Estilos para tooltips */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: 120px;
+  background-color: #1f2937;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #1f2937 transparent transparent transparent;
 }
